@@ -4,27 +4,26 @@ public static class ValidAnagram
 {
     public static bool IsAnagram(string s, string t)
     {
-        var firstStringSorted = Sort(s);
-        var secondStringSorted = Sort(t);
-        return new string(firstStringSorted) == new string(secondStringSorted);
-    }
-
-    private static char[] Sort(string data)
-    {
-        var dataArray = data.ToArray();
-        for (int i = 0; i < data.Length; i++)
+        if (s.Length != t.Length)
         {
-            for (int j = 0; j < data.Length; j++)
+            return false;
+        }
+
+        var charCount = new int[26];
+        foreach (var item in s)
+        {
+            charCount[item - 'a']++;
+        }
+
+        foreach (var item in t)
+        {
+            charCount[item - 'a']--;
+            if (charCount[item - 'a'] < 0)
             {
-                if (dataArray[j] > dataArray[i])
-                {
-                    var temp = dataArray[i];
-                    dataArray[i] = dataArray[j];
-                    dataArray[j] = temp;
-                }
+                return false;
             }
         }
 
-        return dataArray;
+        return true;
     }
 }
