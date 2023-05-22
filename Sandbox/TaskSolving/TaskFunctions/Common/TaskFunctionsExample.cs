@@ -1,6 +1,6 @@
-﻿namespace Sandbox.TaskSolving.TaskFunctions;
+﻿namespace Sandbox.TaskSolving.TaskFunctions.Base;
 
-public static class TaskFunctions
+public static class TaskFunctionsExample
 {
     public static string ConcatenateStrings(params string[] strings)
     {

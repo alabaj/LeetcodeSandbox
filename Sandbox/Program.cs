@@ -1,5 +1,5 @@
 ﻿using Sandbox.TaskSolving;
-using Sandbox.TaskSolving.TaskFunctions;
+using Sandbox.TaskSolving.TaskFunctions.Base;
 using Sandbox.TestDataGeneration;
 using Sandbox.TestDataGeneration.RandomValueFactories;
 
@@ -18,6 +18,6 @@ int parameterSets = 5;
 for (int i = 0; i < testCount; i++)
 {
     var data = TestData.GetTestData(randomStringFactory, parameterSets);
-    var result = TaskSolver.SolveTask<string, string[]>(TaskFunctions.ConcatenateStrings, data);
+    var result = TaskSolver.SolveTask(TaskFunctionsExample.ConcatenateStrings, data);
     Console.WriteLine($"#{i + 1}: Parameters: [{string.Join(", ", data)}]\n\tResult: {result}");
 }
