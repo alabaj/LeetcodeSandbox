@@ -1,6 +1,4 @@
-﻿using System.Text;
-
-namespace Sandbox.TaskSolving.TaskFunctions;
+﻿namespace Sandbox.TaskSolving.TaskFunctions;
 
 public static class TaskFunctions
 {
