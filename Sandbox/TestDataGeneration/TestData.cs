@@ -4,6 +4,11 @@ namespace Sandbox.TestDataGeneration;
 
 public static class TestData
 {
+    public static T GetTestData<T>(IValueFactory<T> valueFactory)
+    {
+        return valueFactory.GenerateValue();
+    }
+
     public static T[] GetTestData<T>(IValueFactory<T> valueFactory, int count)
     {
         T[] data = new T[count];

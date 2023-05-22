@@ -9,7 +9,7 @@ public class RandomStringFactory : IValueFactory<string>
 
     public string GenerateValue()
     {
-        int length = random.Next(1, 10); // Adjust the length range as needed
+        int length = random.Next(1, 10);
         char[] stringChars = new char[length];
         for (int i = 0; i < stringChars.Length; i++)
         {

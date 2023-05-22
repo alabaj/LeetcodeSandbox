@@ -1,5 +1,5 @@
 ﻿using Sandbox.TaskSolving;
-using Sandbox.TaskSolving.TaskFunctions.Base;
+using Sandbox.TaskSolving.TaskFunctions;
 using Sandbox.TestDataGeneration;
 using Sandbox.TestDataGeneration.RandomValueFactories;
 
@@ -12,12 +12,13 @@ RandomCharFactory randomCharFactory = new RandomCharFactory();
 #endregion
 
 int testCount = 3;
-int parameterSets = 5;
+int parameterSets = 2;
 
 
 for (int i = 0; i < testCount; i++)
 {
-    var data = TestData.GetTestData(randomStringFactory, parameterSets);
-    var result = TaskSolver.SolveTask(TaskFunctionsExample.ConcatenateStrings, data);
-    Console.WriteLine($"#{i + 1}: Parameters: [{string.Join(", ", data)}]\n\tResult: {result}");
+    var firstString = TestData.GetTestData(randomStringFactory);
+    var secondString = TestData.GetTestData(randomStringFactory);
+    var result = TaskSolver.SolveTask(ValidAnagram.IsAnagram, firstString, secondString);
+    Console.WriteLine($"#{i + 1}: Parameters: [{string.Join(", ", firstString, secondString)}]\n\tResult: {result}");
 }
