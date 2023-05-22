@@ -6,7 +6,7 @@ public static class ValidAnagram
     {
         var firstStringSorted = Sort(s);
         var secondStringSorted = Sort(t);
-        return firstStringSorted == secondStringSorted;
+        return new string(firstStringSorted) == new string(secondStringSorted);
     }
 
     private static char[] Sort(string data)
@@ -14,9 +14,9 @@ public static class ValidAnagram
         var dataArray = data.ToArray();
         for (int i = 0; i < data.Length; i++)
         {
-            for (int j = i; j < data.Length; j++)
+            for (int j = 0; j < data.Length; j++)
             {
-                if (j < i)
+                if (dataArray[j] > dataArray[i])
                 {
                     var temp = dataArray[i];
                     dataArray[i] = dataArray[j];

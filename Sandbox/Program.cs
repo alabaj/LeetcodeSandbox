@@ -17,8 +17,8 @@ int parameterSets = 2;
 
 for (int i = 0; i < testCount; i++)
 {
-    var firstString = TestData.GetTestData(randomStringFactory);
-    var secondString = TestData.GetTestData(randomStringFactory);
+    var firstString = "rat";
+    var secondString = "car";
     var result = TaskSolver.SolveTask(ValidAnagram.IsAnagram, firstString, secondString);
     Console.WriteLine($"#{i + 1}: Parameters: [{string.Join(", ", firstString, secondString)}]\n\tResult: {result}");
 }
