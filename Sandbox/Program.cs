@@ -18,7 +18,7 @@ int parameterSets = 2;
 
 for (int i = 0; i < testCount; i++)
 {
-    var strings = new string[] { "", "" };
+    var strings = new string[] { "eat", "tea", "tan", "ate", "nat", "bat" };
     var target = 6;
     var result = TaskSolver.SolveTask(GroupAnagrams.Solve, strings);
     Console.WriteLine($"#{i + 1}: Parameters: {FormatMultipleValues(strings, target)}\n\tResult: {FormatMultipleValues(result)}");
