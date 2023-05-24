@@ -1,7 +1,7 @@
 ﻿using Sandbox.TaskSolving;
 using Sandbox.TaskSolving.TaskFunctions;
+using Sandbox.TestDataGeneration;
 using Sandbox.TestDataGeneration.RandomValueFactories;
-using System.Collections;
 using System.Text;
 
 #region Value factories
@@ -13,15 +13,15 @@ RandomCharFactory randomCharFactory = new RandomCharFactory();
 #endregion
 
 int testCount = 1;
-int parameterSets = 2;
+int parameterSets = 10;
 
 
 for (int i = 0; i < testCount; i++)
 {
-    var strings = new string[] { "eat", "tea", "tan", "ate", "nat", "bat" };
-    var target = 6;
-    var result = TaskSolver.SolveTask(GroupAnagrams.Solve, strings);
-    Console.WriteLine($"#{i + 1}: Parameters: {FormatMultipleValues(strings, target)}\n\tResult: {FormatMultipleValues(result)}");
+    var ints = new int[] {1, 1, 1, 2, 2, 3};
+    var k = 2;
+    var result = TaskSolver.SolveTask(TopKFrequentElements.TopKFrequent, ints, k);
+    Console.WriteLine($"#{i + 1}: Parameters: {FormatMultipleValues(ints, k)}\n\tResult: {FormatMultipleValues(result)}");
 }
 
 #region Output formatting
@@ -31,8 +31,13 @@ string FormatMultipleValues(params object[] values)
 
     for (int i = 0; i < values.Length; i++)
     {
-
-        if (values[i] is IList<IList<string>> nestedList)
+        if (values[i] is Array array)
+        {
+            builder.Append("[");
+            builder.Append(string.Join(", ", GetArrayValues(array)));
+            builder.Append("]");
+        }
+        else if (values[i] is IList<IList<string>> nestedList)
         {
             builder.Append("[");
             for (int j = 0; j < nestedList.Count; j++)
@@ -68,16 +73,16 @@ string FormatMultipleValues(params object[] values)
     return builder.ToString();
 }
 
-//string[] GetArrayValues(Array array)
-//{
-//    string[] stringValues = new string[array.Length];
-//    for (int i = 0; i < array.Length; i++)
-//    {
-//        stringValues[i] = array.GetValue(i)?.ToString()!;
-//    }
+string[] GetArrayValues(Array array)
+{
+    string[] stringValues = new string[array.Length];
+    for (int i = 0; i < array.Length; i++)
+    {
+        stringValues[i] = array.GetValue(i)?.ToString()!;
+    }
 
-//    return stringValues;
-//}
+    return stringValues;
+}
 
 //string[] GetEnumerableValues(IEnumerable enumerable)
 //{

@@ -10,4 +10,9 @@ public class RandomIntegerFactory : IValueFactory<int>
     {
         return random.Next(1, 100);
     }
+
+    public int GenerateValue(int min, int max)
+    {
+        return random.Next(min, max);
+    }
 }
